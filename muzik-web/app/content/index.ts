@@ -43,7 +43,7 @@ answer: string;
 }[] = [
     {
         question: "What is Muzik?",
-        answer: "Muzik-apps are a collection apps that offer music streaming capabilities or to playing music that is stored locally on" + 
+        answer: "Muzik-apps are a collection of apps that offer music streaming capabilities or the ability to play music that is stored locally on" + 
         " your computer all with an emphasis on customization, an easy to use gui and above all, a beautiful user experience."
     },
     {
@@ -70,6 +70,6 @@ answer: string;
     },
     {
         question: "I like the app and I would like to show some support?",
-        answer: "You can head over to the github page and star the repo. This will help the app get more visibility and will help more people find the app."
+        answer: "You can head over to the github page and star the repo. This will help the app get more visibility and will help more people find muzik apps."
     },
 ]

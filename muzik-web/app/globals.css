@@ -114,6 +114,7 @@
 }
 
 body {
+  scroll-behavior: smooth;
   color: var(--text-color);
   background: linear-gradient(
       to bottom,

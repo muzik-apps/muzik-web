@@ -18,7 +18,7 @@ export default function Slider() {
         centeredSlides={true}
         autoplay={
             {
-                delay: 5000,
+                delay: 3000,
                 disableOnInteraction: false,
             }
         }
