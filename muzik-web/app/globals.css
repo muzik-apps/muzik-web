@@ -3,21 +3,118 @@
 @tailwind utilities;
 
 :root {
+  --text-color: #252525;
+  --alt-text-color: #ECECEC;
+  --footer-col: #252525;
+  --glassy-blur-col: #ECECEC4D;
+  --glassy-blur-border-col: #B6B6B680;
+  --footer-border-col: none;
+  --muzik-color: linear-gradient(263deg, #B47CFB 25.87%, #FB7C93 100%);
+  --muzik-offline-color: linear-gradient(270deg, #79C1D4 4.55%, #9433E0 49.85%, #3A95E9 93.3%);
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --svg-box-shadow: drop-shadow( 0px 0px 20px rgb(0, 0, 0));
+  --card-box-shadow: 0px 0px 70px 20px rgba(0, 0, 0, 0.25);
+}
+
+.svg-stroke path{ stroke: var(--text-color); }
+
+.svg-fill path{ fill: var(--text-color); }
+
+.svg-fill-path{ fill: var(--text-color); }
+
+.muzik-color{ background: var(--muzik-color); }
+
+.muzik-offline-color{ background: var(--muzik-offline-color); }
+
+.svg-shadow{ filter: var(--svg-box-shadow);}
+
+.card-backdrop{ box-shadow: var(--card-box-shadow);}
+
+.outlined-text{
+  background: var(--app-color-theme, linear-gradient(263deg, #B47CFB 25.87%, #FB7C93 100%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --text-color: #ECECEC;
+    --alt-text-color: #252525;
+    --glassy-blur-col: #2121214D;
+    --footer-col: #2121214D;
+    --glassy-blur-border-col: #21212180;
+    --footer-border-col: #21212180;
+    --muzik-color: linear-gradient(263deg, #B47CFB 25.87%, #FB7C93 100%);
+    --muzik-offline-color: linear-gradient(270deg, #79C1D4 4.55%, #9433E0 49.85%, #3A95E9 93.3%);
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --svg-box-shadow: none;
+    --card-box-shadow: none;
   }
+
+  .svg-stroke path{ stroke: var(--text-color); }
+  
+  .svg-fill path{ fill: var(--text-color); }
+
+  .svg-fill-path{ fill: var(--text-color); }
+
+  .svg-shadow{ filter: var(--svg-box-shadow);}
+
+  .card-backdrop{ box-shadow: var(--card-box-shadow);}
+}
+
+.dark-theme{
+  --text-color: #ECECEC;
+  --alt-text-color: #252525;
+  --glassy-blur-col: #2121214D;
+  --footer-col: #2121214D;
+  --glassy-blur-border-col: #21212180;
+  --footer-border-col: #21212180;
+  --muzik-color: linear-gradient(263deg, #B47CFB 25.87%, #FB7C93 100%);
+  --muzik-offline-color: linear-gradient(270deg, #79C1D4 4.55%, #9433E0 49.85%, #3A95E9 93.3%);
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  --svg-box-shadow: none;
+  --card-box-shadow: none;
+  color: var(--text-color);
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.light-theme{
+  --text-color: #252525;
+  --alt-text-color: #ECECEC;
+  --footer-col: #252525;
+  --glassy-blur-col: #ECECEC4D;
+  --glassy-blur-border-col: #B6B6B680;
+  --footer-border-col: none;
+  --muzik-color: linear-gradient(263deg, #B47CFB 25.87%, #FB7C93 100%);
+  --muzik-offline-color: linear-gradient(270deg, #79C1D4 4.55%, #9433E0 49.85%, #3A95E9 93.3%);
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --svg-box-shadow: drop-shadow( 0px 0px 20px rgb(0, 0, 0));
+  --card-box-shadow: 0px 0px 70px 20px rgba(0, 0, 0, 0.25);
+  color: var(--text-color);
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--text-color);
   background: linear-gradient(
       to bottom,
       transparent,
