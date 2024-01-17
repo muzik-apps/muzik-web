@@ -32,6 +32,31 @@
 
 .card-backdrop{ box-shadow: var(--card-box-shadow);}
 
+label span{
+  transition: .4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+input[type="checkbox"]{
+  display:none;
+}
+
+input[type="checkbox"]:checked ~ span:nth-of-type(1){
+  transform-origin:bottom;
+  transform:rotatez(45deg) translate(2.8px,1px)
+}
+
+input[type="checkbox"]:checked ~ span:nth-of-type(2){
+  transform-origin:top;
+  width:105%;
+  transform:rotatez(-45deg) translate(-1px,0px)
+}
+
+input[type="checkbox"]:checked ~ span:nth-of-type(3){
+  transform-origin:bottom;
+  width:50%;
+  transform: translate(10.5px,-3.5px) rotatez(45deg);
+}
+
 .outlined-text{
   background: var(--app-color-theme, linear-gradient(263deg, #B47CFB 25.87%, #FB7C93 100%));
   background-clip: text;
