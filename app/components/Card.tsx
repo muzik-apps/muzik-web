@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 type CardProps = {
+    isLargeScreen: boolean;
     empty: boolean;
     logo: any;
     description: string;
@@ -11,17 +12,16 @@ type CardProps = {
 export default function Card(props: CardProps) {
     return (
         <>
-        { props.empty ? <div className="w-[400px] h-[350px] ml-[50px] mr-[50px] mb-[100px]" />
+        { props.empty && props.isLargeScreen ? <div className="w-[400px] h-[350px] ml-[50px] mr-[50px] mb-[100px]" /> :
+            props.empty && props.isLargeScreen === false ? <div/>
             :
-            <div className="
-            card-backdrop hover:scale-[1.03] transition-all duration-500 ease-in-out
-            w-[400px] h-[350px]
-            ml-[50px] mr-[50px] mb-[100px] 
-            rounded-[30px] flex flex-col justify-end 
-            p-[20px]
-            bg-[var(--glassy-blur-col)] border-solid border border-[var(--glassy-blur-border-col)]">
+            <div className={`
+            card-backdrop hover:scale-[1.03] transition-all duration-500 ease-in-out h-[350px] ` +
+            (props.isLargeScreen ? ` w-[400px] ml-[50px] mr-[50px] ` : ` w-[90vw] `)
+            + `mb-[100px] rounded-[30px] flex flex-col justify-end p-[20px]
+            bg-[var(--glassy-blur-col)] border-solid border border-[var(--glassy-blur-border-col)]`}>
                 <Image className="mt-[0px] ml-auto mr-auto" height={108} width={400} src={props.logo} alt="my_library"/>
-                <h3 className="w-[360px] mt-[20px] h-[100px] text-[20px]">
+                <h3 className={"mt-[20px] h-[100px] text-[20px] " + (props.isLargeScreen ? "w-[360px]" : "w-[calc(90vw-40px)]")}>
                     {props.description}
                 </h3>
                 { 
@@ -29,9 +29,9 @@ export default function Card(props: CardProps) {
                 props.download_link ? 
                     <a className={`
                     hover:scale-[1.03] active:scale-[0.98] transition-all duration-500 ease-in-out
-                        w-[360px] h-[50px] rounded-[20px] mt-[20px]
+                        h-[50px] rounded-[20px] mt-[20px]
                         ${props.button_colour_var}
-                        flex items-center`}
+                        flex items-center ` + (props.isLargeScreen ? "w-[360px]" : "w-[calc(90vw-40px)]")}
                         href={props.download_link}
                         target="_blank" rel="noopener noreferrer">
                             <h4 className="text-[20px] w-[100%] cursor-pointer text-center text-[#ECECEC]">
@@ -39,7 +39,8 @@ export default function Card(props: CardProps) {
                             </h4>
                     </a>
                     :
-                    <div className="w-[360px] h-[50px] rounded-[20px] mt-[20px] bg-[var(--text-color)] flex items-center">
+                    <div className={"h-[50px] rounded-[20px] mt-[20px] bg-[var(--text-color)] flex items-center" 
+                        + (props.isLargeScreen ? " w-[360px]" : " w-[calc(90vw-40px)]")}>
                         <h4 className="text-[20px] w-[100%] text-center text-[var(--alt-text-color)]">coming soon</h4>
                     </div>
                 }
